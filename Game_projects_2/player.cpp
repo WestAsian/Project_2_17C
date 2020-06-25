@@ -111,17 +111,19 @@ void player::print() const
 	
 	int i = 0;  
 	card_elem *temp_ptr = head; 
-	while (temp_size > 0) 
+	if (temp_size > 0) 
 	{
 		cout <<  i << ":  " << temp_ptr->data << endl; 
 		temp_ptr = temp_ptr->next; 
 		i++; 
-		temp_size--; 
-	}
-
+		temp_size--;
+                return;
+	} else{
+        cout<<"error"<<endl;
+        temp_size - 1;
+        return;
+        }
 }
-
-
 
 void player::copy(const player & other)
 {

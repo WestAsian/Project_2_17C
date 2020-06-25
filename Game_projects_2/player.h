@@ -16,6 +16,8 @@
 
 
 #include "card.h"
+
+class card_elem;
 class player
 {
 	public: 
@@ -26,10 +28,10 @@ class player
 		void hand_add(card temp); 
 		card hand_remove(int pos); 
 		void uno(); 
-		void print() const; 
+		void print() const;
 		int get_size() const; 
 		card peek(int pos) const; 
-	private:
+	
 		class card_elem
 		{
 		  public: 

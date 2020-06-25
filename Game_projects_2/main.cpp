@@ -19,6 +19,8 @@
 #include <string> 
 #include <cstdlib> 
 #include <limits> 
+#include <iterator>
+#include <map>
 using namespace std; 
 
 #define TEXTFILE "intro.txt"
@@ -39,7 +41,7 @@ void confirm_turn (int x)
 		cin >> temp; 
 	}
 }
- 
+
 COLOR FromString (const string & str)
 {
 	if ( str == "red") 
@@ -135,8 +137,13 @@ int main()
 
 		player * curr_player = &play_array[turn%amount_players]; 
 
+                map<int, int> score;
+                int player;
+                score[player] = turn%amount_players;
 
-		cout << "PLAYER " << turn%amount_players << endl;
+                map<int, int>::iterator itr;
+                cout <<"Player turn : "<< turn%amount_players << endl;
+                cout << endl;
 
 		if (force_draw_bool)
 		{
@@ -173,8 +180,7 @@ int main()
 		}
 		cout << endl; 
 		cout << "Played Card: " << played_card << endl; 
-		cout << "PLAYER " << turn%amount_players << endl; 
-		
+		cout << "PLAYER " << turn%amount_players << endl;
 		curr_player->print(); 
 		int check_flag = 0 ; 
 		int index; 
